@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Signup = () => {
   const [formdata, setFormData] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formdata, [e.target.id]: e.target.value });
@@ -28,7 +29,7 @@ const Signup = () => {
         setError(true);
         return;
       }
-      console.log(data);
+      navigate("/signin");
     } catch (error) {
       setLoading(false);
       setError(true);
@@ -43,21 +44,21 @@ const Signup = () => {
           type="text"
           placeholder="Username"
           id="username"
-          className="bg-slate-100 p-3 rounded-lg"
+          className="bg-slate-100 p-3 rounded-lg outline-none"
           onChange={handleChange}
         />
         <input
           type="email"
           placeholder="Email"
           id="email"
-          className="bg-slate-100 p-3 rounded-lg"
+          className="bg-slate-100 p-3 rounded-lg outline-none"
           onChange={handleChange}
         />
         <input
           type="password"
           placeholder="Password"
           id="password"
-          className="bg-slate-100 p-3 rounded-lg"
+          className="bg-slate-100 p-3 rounded-lg outline-none"
           onChange={handleChange}
         />
         <button
