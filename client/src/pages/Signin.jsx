@@ -30,7 +30,7 @@ const Signin = () => {
         return;
       }
 
-      navigate("/signup");
+      navigate("/home");
     } catch (error) {
       setLoading(false);
       setError(true);
